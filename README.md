@@ -1,1 +1,1 @@
-# image-generation
+# lightning-boilerplate
