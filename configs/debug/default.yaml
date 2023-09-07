@@ -1,0 +1,26 @@
+# @package _global_
+task_name: "debug"
+
+callbacks: null
+logger: null
+
+extras:
+  ignore_warnings: False
+  enforce_tags: False
+
+hydra:
+  job_logging:
+    root:
+      level: DEBUG
+  # use this to also set hydra loggers to 'DEBUG'
+  verbose: false
+
+trainer:
+  max_epochs: 1
+  accelerator: cpu
+  devices: 1
+  detect_anomaly: true
+
+data:
+  num_workers: 0
+  pin_memory: false

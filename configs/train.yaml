@@ -1,0 +1,20 @@
+# @package _global_
+defaults:
+  - _self_
+  - data: default
+  - model: default
+  - callbacks: default
+  - logger: null
+  - trainer: default
+  - paths: default
+  - extras: default
+  - hydra: default
+  - experiment: null
+  - debug: null
+
+task_name: "train"
+tags: ["dev"]
+train: true
+test: true
+ckpt_path: null
+seed: null

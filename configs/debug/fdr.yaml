@@ -1,0 +1,6 @@
+# @package _global_
+defaults:
+  - default
+
+trainer:
+  fast_dev_run: true
