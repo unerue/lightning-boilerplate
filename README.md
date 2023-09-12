@@ -30,7 +30,7 @@ git clone --depth 1 --branch main https://github.com/unerue/lightning-boilerplat
 cd your-project-name
 ```
 
-### Poetry
+### Poetry package installation
 
 ```bash
 pyenv install 3.10.13
@@ -157,3 +157,8 @@ Equivalent to >=2.0.0, <3.0.0
 
 beepboop = "*"
 Allows any version. Equivalent to >=0.0.0  
+
+
+```bash
+poetry export --without-hashes --format=requirements.txt > requirements.txt
+```
