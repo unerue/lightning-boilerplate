@@ -98,7 +98,7 @@ class Cifar10Classifier(LightningModule):
         logits = self.forward(x)
         loss = self.criterion(logits, y)
         preds = torch.argmax(logits, dim=1)
-        
+ 
         loss, preds, targets = self.model_step(batch)
 
         # update and log metrics

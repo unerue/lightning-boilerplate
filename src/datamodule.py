@@ -3,7 +3,7 @@ from typing import Any, Optional
 import torch
 from lightning import LightningDataModule
 from torch.utils.data import ConcatDataset, DataLoader, Dataset, random_split
-from torchvision.datasets import CIFAR10, MNIST
+from torchvision.datasets import CIFAR10
 from torchvision.transforms import transforms
 
 
