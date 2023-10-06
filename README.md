@@ -1,6 +1,10 @@
 # lightning-boilerplate
 
-## Prequi
+## Prequisites
+
+### Lighting Trainer API
+
+https://lightning.ai/docs/pytorch/latest/common/trainer.html#trainer-class-api
 
 ### pyenv
 
@@ -49,6 +53,7 @@ poetry install
 ```bash
 poetry source add -p explicit pytorch https://download.pytorch.org/whl/cu117
 poetry add --source pytorch torch torchvision
+poetry run python -c "import torch;print(torch.cuda.is_available())"
 ```
 
 #### Poetry install package
@@ -156,7 +161,7 @@ beepboop = "2.*"
 Equivalent to >=2.0.0, <3.0.0
 
 beepboop = "*"
-Allows any version. Equivalent to >=0.0.0  
+Allows any version. Equivalent to >=0.0.0
 
 
 ```bash

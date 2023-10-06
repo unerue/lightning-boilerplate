@@ -3,16 +3,16 @@ from typing import Any, Dict, List, Optional, Tuple
 import hydra
 import lightning as L
 import rootutils
+import torch
 from lightning import Callback, LightningDataModule, LightningModule, Trainer
 from lightning.pytorch.loggers import Logger
 from omegaconf import DictConfig
-
 
 # https://github.com/ashleve/rootutils
 rootutils.setup_root(__file__, indicator=".project-root", pythonpath=True)
 from src import utils
 
-
+torch.set_float32_matmul_precision("medium")
 log = utils.get_pylogger(__name__)
 
 

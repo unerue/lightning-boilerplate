@@ -19,4 +19,4 @@ early_stopping:
   mode: "max"
 
 model_summary:
-  max_depth: -1
+  max_depth: 2
