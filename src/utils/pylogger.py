@@ -1,13 +1,16 @@
 import logging
+
 from lightning.pytorch.utilities import rank_zero_only
 
 
 def get_pylogger(name: str = __name__) -> logging.Logger:
-    """Initializes a multi-GPU-friendly python command line logger.
+    """Initializes a multi-GPU-friendly logger.
 
-    :param name: The name of the logger, defaults to ``__name__``.
+    Args:
+        name: The name of the logger, defaults to ``__name__``.
 
-    :return: A logger object.
+    Returns:
+        logger object.
     """
     logger = logging.getLogger(name)
 
