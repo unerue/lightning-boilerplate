@@ -2,7 +2,11 @@
 
 ## Prerequisites
 
-Lightning Boilerplate는 Python 3.9 이상 지원한다. 추천하는 개발환경은 `pyenv`와 `poetry`이다.
+Lightning Boilerplate는 Python 3.9 이상 지원한다. 추천하는 개발환경은 `pyenv`와 `poetry`이다. 영어 버전은 준비 중에 있습니다.
+
+- [ ] PyTorch and Lightning with video files
+- [ ] scikit-learn template
+
 
 ### Docker
 
@@ -12,7 +16,7 @@ Lightning Boilerplate는 Python 3.9 이상 지원한다. 추천하는 개발환�
 docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 ```
 
-### pyenv
+### pyenv (recommended)
 
 pyenv는 맥/리눅스 버전 [설치](https://github.com/pyenv/pyenv#installation), [윈도우 설치](https://github.com/pyenv-win/pyenv-win#installation) 방법에 따라 파이썬 버전을 관리한다.
 
@@ -45,22 +49,29 @@ Python linter로 [Ruff](https://marketplace.visualstudio.com/items?itemName=char
 
 ## Lightning Boilerplate
 
+> 템플릿을 다운 받고 `poetry install` 전 파이썬 버전과 `pyproject.toml` 파일의 파이썬 버전과 시멘틱 버저닝을 확인한 다음 실행한다. 그 후 git remote remove origin을 실행하여 원격 저장소와 연결을 종료한다.
+
 ```bash
 git clone --depth 1 --branch main https://github.com/unerue/lightning-boilerplate.git ${your-project-name}
 cd ${your-project-name}
-poetry init
+poetry install
+git remote remove origin
 ```
 
 ## Poetry package installation
 
-Poetry 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설치 방법은 다음과 같다. pyenv로 파이썬 전역 버전을 설정한다.
+Poetry 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설치 방법은 다음과 같다. pyenv로 파이썬 전역 버전을 설정한다. 아래는 `poetry`로 해당 템플릿이 아닌 다른 프로젝트에서 사용할 수 있는 간단한 사용방법을 설명한다.
 
+<details>
+<summary><b>Exact version</b></summary>
 ```bash
 pyenv install 3.10.13 # Windows 3.10.10
 pyenv global 3.10.13
 ```
 
 `git clone`으로 만들어진 폴더로 진입해 프로젝트를 초기화한다.
+* 작업 폴더 내에서 `poetry`를 초기화한다. 초기화 시 PEP에 따라 `pyproject.toml`이 생성된다.
+* 작업 폴더 내 패키지관리(e.g. JS의 node_modules)와 같이 라이브러리를 관리하고 싶다면 virtualenvs.in-project를 `true`로 설정하고 해당 파일을 `--local`로 저장한다. 저장된 로컬 설정파일은 `poetry.toml`이다.
 
 ```bash
 poetry init
@@ -78,17 +89,20 @@ poetry run python -c "import torch;print(torch.cuda.is_available())"
 
 ### Lightning and dev package installation
 
-```
+* `poetry`는 라이브러리를 다양한 그룹으로 관리할 수 있다. 서비스와 상관없이 개발에만 필요한 패키지라면 `--group`인자를 통해 그룹명을 지정한 다음 배포 시 해당 라이브러리를 배제하고 배포가능하다.
+
+```bash
 poetry add lightning hydra-core hydra-colorlog rootutils rich python-dotenv
 poetry add pytest black mypy isort pre-commit --group dev
 ```
+</detail>
 
 ## Usage of Lightning Boilerplate
 
 Poetry를 기반으로 실행한다. `conda`나 `venv`라면 `python` 명령어로 실행한다.
 
 ```bash
-pytest test
+pytest run pytest
 poetry run python src/train.py trainer=gpu
 ```
 
@@ -143,6 +157,17 @@ python src/train.py +trainer.new_arg="value"
 ├── setup.py                  # File for installing project as a package
 └── README.md
 ```
+
+### Before push your repository
+
+`pre-commit`으로 훅(hook)으로 작성한 코드를 자동으로 formatter, linter, 보안 등 코드 내 잠재하고 있는 문제점을 찾아내기 위한 도구이다. `poetry install`을 했다는 가정하에:
+
+```bash
+poetry run pre-commit install
+```
+
+`pre-commit install` 명령어를 통해 `pre-commit-config.yaml` 파일에 미리 설정된 훅들을 설치하고 차후 `git commit`에 따른 코드를 자동으로 수정해준다.
+
 
 ## (Misc) Package Version Management with Poetry
 
