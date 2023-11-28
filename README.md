@@ -63,7 +63,7 @@ git remote remove origin
 Poetry 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설치 방법은 다음과 같다. pyenv로 파이썬 전역 버전을 설정한다. 아래는 `poetry`로 해당 템플릿이 아닌 다른 프로젝트에서 사용할 수 있는 간단한 사용방법을 설명한다.
 
 <details>
-<summary><b>Exact version</b></summary>
+<summary><b>Basic poetry usage</b></summary>
 ```bash
 pyenv install 3.10.13 # Windows 3.10.10
 pyenv global 3.10.13
