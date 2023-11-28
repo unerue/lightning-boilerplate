@@ -95,7 +95,7 @@ poetry run python -c "import torch;print(torch.cuda.is_available())"
 poetry add lightning hydra-core hydra-colorlog rootutils rich python-dotenv
 poetry add pytest black mypy isort pre-commit --group dev
 ```
-</detail>
+</details>
 
 ## Usage of Lightning Boilerplate
 
