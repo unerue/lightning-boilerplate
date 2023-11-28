@@ -2,10 +2,11 @@
 
 ## Prerequisites
 
-Lightning Boilerplate는 Python 3.9 이상 지원한다. 추천하는 개발환경은 `pyenv`와 `poetry`이다. 영어 버전은 준비 중에 있습니다.
+Lightning Boilerplate는 Python 3.9 이상 지원한다. 추천하는 개발환경은 `pyenv`와 `poetry`이다.영어 버전은 준비 중에 있습니다.
 
 - [ ] PyTorch and Lightning with video files
 - [ ] scikit-learn template
+- [ ] Documentation
 
 
 ### Docker
@@ -64,6 +65,8 @@ Poetry 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설
 
 <details>
 <summary><b>Basic poetry usage</b></summary>
+
+poetry 기초 사용 방법은 다음과 같다.
 
 ```bash
 pyenv install 3.10.13 # Windows 3.10.10
