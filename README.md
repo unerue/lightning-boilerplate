@@ -64,6 +64,7 @@ Poetry 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설
 
 <details>
 <summary><b>Basic poetry usage</b></summary>
+
 ```bash
 pyenv install 3.10.13 # Windows 3.10.10
 pyenv global 3.10.13
@@ -95,6 +96,7 @@ poetry run python -c "import torch;print(torch.cuda.is_available())"
 poetry add lightning hydra-core hydra-colorlog rootutils rich python-dotenv
 poetry add pytest black mypy isort pre-commit --group dev
 ```
+
 </details>
 
 ## Usage of Lightning Boilerplate
