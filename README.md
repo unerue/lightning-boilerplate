@@ -107,20 +107,20 @@ poetry add pytest black mypy isort pre-commit --group dev
 Poetry를 기반으로 실행한다. `conda`나 `venv`라면 `python` 명령어로 실행한다.
 
 ```bash
-pytest run pytest
+poetry run pytest
 poetry run python src/train.py trainer=gpu
 ```
 
 명령어줄(command line)에서 설정(config) 매개변수 오버라이드(override)하기
 
 ```bash
-python src/train.py trainer.max_epochs=20
+poetry run python src/train.py trainer.max_epochs=20
 ```
 
 미리 설정하지 않은 매개변수 추가하기
 
 ```bash
-python src/train.py +trainer.new_arg="value"
+poetry run python src/train.py +trainer.new_arg="value"
 ```
 
 작업 디렉토리 구조는 다음과 같음:
