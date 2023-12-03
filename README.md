@@ -1,6 +1,17 @@
 # ⚡lightning-boilerplate
 
-<p align="center">
+<div align="center">
+
+[![python](https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![poetry](https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white)](https://python-poetry.org/)
+[![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
+[![cuda](https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white)](https://pytorch.org/get-started/previous-versions/)
+[![lightning](https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://pytorchlightning.ai/)
+[![hydra](https://img.shields.io/badge/Hydra_1.3+-89b8cf)](https://hydra.cc/)
+[![hydra](https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg)](https://github.com/unerue/lightning-boilerplate/graphs/contributors)
+
+</div>
+<!--
   <a href="https://github.com/pre-commit/pre-commit">
     <img src="https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white" />
   </a>
@@ -21,8 +32,7 @@
   </a>
   <a href="https://github.com/unerue/lightning-boilerplate/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg" />
-  </a>
-</p>
+  </a> -->
 
 <h4 align="center">
   <p>
