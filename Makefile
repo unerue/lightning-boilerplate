@@ -13,17 +13,13 @@ clean-logs: ## Clean logs
 	rm -rf logs/**
 
 format: ## Run pre-commit hooks
-	pre-commit run -a
-
-sync: ## Merge changes from main branch to your current branch
-	git pull
-	git pull origin main
+	poetry run pre-commit run -a
 
 test: ## Run not slow tests
-	pytest -k "not slow"
+	poetry run pytest -k "not slow"
 
 test-full: ## Run all tests
-	pytest
+	poetry run pytest
 
 train: ## Train the model
-	python src/train.py
+	poetry run python src/train.py

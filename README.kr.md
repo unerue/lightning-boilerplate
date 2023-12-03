@@ -1,40 +1,58 @@
 # ⚡lightning-boilerplate
 
+<div align="center">
+
 [![python](https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![python](https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white)]()
+[![poetry](https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white)](https://python-poetry.org/)
 [![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
-[![python](https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white)]()
+[![cuda](https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white)](https://pytorch.org/get-started/previous-versions/)
 [![lightning](https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://pytorchlightning.ai/)
 [![hydra](https://img.shields.io/badge/Hydra_1.3+-89b8cf)](https://hydra.cc/)
-[![contributors](https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg)](https://github.com/unerue/lightning-boilerplate/graphs/contributors)
-<!-- [![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/) -->
-<!-- [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/) <br> -->
-<!-- [![tests](https://github.com/unerue/lightning-boilerplate/actions/workflows/test.yml/badge.svg)](https://github.com/unerue/lightning-boilerplate/actions/workflows/test.yml) -->
-<!-- [![code-quality](https://github.com/unerue/lightning-boilerplate/actions/workflows/code-quality-main.yaml/badge.svg)](https://github.com/unerue/lightning-boilerplate/actions/workflows/code-quality-main.yaml) -->
-<!-- [![codecov](https://codecov.io/gh/ashleve/lightning-hydra-template/branch/main/graph/badge.svg)](https://codecov.io/gh/unerue/lightning-boilerplate) <br> -->
-<!-- [![license](https://img.shields.io/badge/License-MIT-green.svg?labelColor=gray)](https://github.com/unerue/lightning-boilerplate#license) -->
-<!-- [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/unerue/lightning-boilerplate/pulls) -->
+[![hydra](https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg)](https://github.com/unerue/lightning-boilerplate/graphs/contributors)
+
+</div>
+<!--
+  <a href="https://github.com/pre-commit/pre-commit">
+    <img src="https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white" />
+  </a>
+  <a href="https://python-poetry.org/">
+    <img src="https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white" />
+  </a>
+  <a href="https://pytorch.org/get-started/locally/">
+    <img src="https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white" />
+  </a>
+  <a href="https://pytorch.org/get-started/previous-versions/">
+    <img src="https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white" />
+  </a>
+  <a href="https://pytorchlightning.ai/">
+    <img src="https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white" />
+  </a>
+  <a href="https://hydra.cc/">
+    <img src="https://img.shields.io/badge/Hydra_1.3+-89b8cf" />
+  </a>
+  <a href="https://github.com/unerue/lightning-boilerplate/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg" />
+  </a> -->
 
 <h4 align="center">
   <p>
     English |
-    <a href="https://github.com/unerue/lightning-boilerplate/blob/main/README.kr.md">한국어</a>
+    <a href="https://github.com/unerue/lightning-boilerplate/blob/develop/README.kr.md">한국어</a>
   </p>
 </h4>
 
-
-Lightning Boilerplate는 [**lightning-hydra-template**](https://github.com/ashleve/lightning-hydra-template)에서 영감을 받았습니다. `lightning`과 `hydra`를 사용하여 머신러닝/딥러닝 연구자/엔지니어들이 `sklearn`과 `torch`로 연구와 개발을 효율적으로 수행할 수 있도록 지원합니다. 해당 템플릿은 Python 3.9 이상을 지원하며 추천하는 개발환경은 `conda`가 아닌 `pyenv`와 `poetry`입니다.
+**Lightning Boilerplate**는 [**lightning-hydra-template**](https://github.com/ashleve/lightning-hydra-template)에서 영감을 받았습니다. `lightning`과 `hydra`를 사용하여 머신러닝/딥러닝 연구자/엔지니어들이 `sklearn`과 `torch`로 연구와 개발을 효율적으로 수행할 수 있도록 지원합니다. 해당 템플릿은 Python 3.9 이상을 지원하며 추천하는 개발환경은 `conda`가 아닌 `pyenv`와 `poetry`입니다.
 
 - [ ] PyTorch and Lightning with video files
-- [ ] scikit-learn template
-- [ ] pytorch native template with hydra-config
+- [ ] scikit-learn template with hydra-config
+- [ ] PyTorch native template with hydra-config
 - [ ] Documentation in English
 
 ## ⚙ Prerequisites
 
 ### pyenv (recommended)
 
-`pyenv`는 사용하는 운영체제에 따라 [맥/리눅스](https://github.com/pyenv/pyenv#installation) 또는 [윈도우](https://github.com/pyenv-win/pyenv-win#installation) 버전을 설치하는 방법을 참고하여 파이썬 버전을 관리하시기 바랍니다.
+`pyenv`는 사용하는 운영체제에 따라 [맥/리눅스](https://github.com/pyenv/pyenv#installation) 또는 [윈도우](https://github.com/pyenv-win/pyenv-win#installation) 버전을 설치하는 방법을 참고하여 파이썬 버전을 관리하시기 바랍니다. 예제는 우분투를 기반으로 합니다.
 
 ```bash
 curl https://pyenv.run | bash

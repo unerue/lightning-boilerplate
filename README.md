@@ -2,57 +2,44 @@
 
 <div align="center">
 
-[![python](https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![python](https://img.shields.io/badge/-Python_3.9_%7C_3.10_%7C_3.11-255074?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![poetry](https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white)](https://python-poetry.org/)
 [![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
-[![cuda](https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white)](https://pytorch.org/get-started/previous-versions/)
+[![cuda](https://img.shields.io/badge/-CUDA_10.7_%7C_10.8_%7C_12.1-91c733?logo=cuda&logoColor=white)](https://pytorch.org/get-started/previous-versions/)
 [![lightning](https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://pytorchlightning.ai/)
 [![hydra](https://img.shields.io/badge/Hydra_1.3+-89b8cf)](https://hydra.cc/)
 [![hydra](https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg)](https://github.com/unerue/lightning-boilerplate/graphs/contributors)
 
 </div>
-<!--
-  <a href="https://github.com/pre-commit/pre-commit">
-    <img src="https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white" />
-  </a>
-  <a href="https://python-poetry.org/">
-    <img src="https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white" />
-  </a>
-  <a href="https://pytorch.org/get-started/locally/">
-    <img src="https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white" />
-  </a>
-  <a href="https://pytorch.org/get-started/previous-versions/">
-    <img src="https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white" />
-  </a>
-  <a href="https://pytorchlightning.ai/">
-    <img src="https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white" />
-  </a>
-  <a href="https://hydra.cc/">
-    <img src="https://img.shields.io/badge/Hydra_1.3+-89b8cf" />
-  </a>
-  <a href="https://github.com/unerue/lightning-boilerplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg" />
-  </a> -->
 
 <h4 align="center">
   <p>
     English |
-    <a href="https://github.com/unerue/lightning-boilerplate/blob/main/README.kr.md">한국어</a>
+    <a href="https://github.com/unerue/lightning-boilerplate/blob/develop/README.kr.md">한국어</a>
   </p>
 </h4>
 
-**Lightning Boilerplate**는 [**lightning-hydra-template**](https://github.com/ashleve/lightning-hydra-template)에서 영감을 받았습니다. `lightning`과 `hydra`를 사용하여 머신러닝/딥러닝 연구자/엔지니어들이 `sklearn`과 `torch`로 연구와 개발을 효율적으로 수행할 수 있도록 지원합니다. 해당 템플릿은 Python 3.9 이상을 지원하며 추천하는 개발환경은 `conda`가 아닌 `pyenv`와 `poetry`입니다.
+**Lightning Boilerplate**는 [**lightning-hydra-template**](https://github.com/ashleve/lightning-hydra-template)에서 영감을 받았습니다. `lightning`과 `hydra`를 사용하여 머신러닝/딥러닝 연구자/엔지니어들이 `sklearn`과 `torch`로 연구와 개발을 효율적으로 수행할 수 있도록 지원합니다. 해당 템플릿은 Python 3.9 이상([PEP 585](https://peps.python.org/pep-0585/))을 지원하며 추천하는 개발환경은 `conda`가 아닌 `pyenv`와 `poetry`입니다.
 
-- [ ] PyTorch and Lightning with video files
+### Table of Contents
+
+1. [Prerequisites](##-⚙-Prerequisites)
+2. [Usage of Lightning Boilerplate](##-🚀-Usage-of-Lightning-Boilerplate)
+3. [(Misc.) Package Version Management with Poetry](##-(Misc)-Package-Version-Management-with-Poetry)
+4. [Contribution](##-Contribution)
+
+#### TODO
+
+- [ ] Documentation in English
 - [ ] scikit-learn template with hydra-config
 - [ ] PyTorch native template with hydra-config
-- [ ] Documentation in English
+- [ ] Lightning with video files
 
 ## ⚙ Prerequisites
 
 ### pyenv (recommended)
 
-`pyenv`는 사용하는 운영체제에 따라 [맥/리눅스](https://github.com/pyenv/pyenv#installation) 또는 [윈도우](https://github.com/pyenv-win/pyenv-win#installation) 버전을 설치하는 방법을 참고하여 파이썬 버전을 관리하시기 바랍니다.
+`pyenv`는 사용하는 운영체제에 따라 [맥/리눅스](https://github.com/pyenv/pyenv#installation) 또는 [윈도우](https://github.com/pyenv-win/pyenv-win#installation) 버전을 설치하는 방법을 참고하여 파이썬 버전을 관리하시기 바랍니다. 예제는 우분투를 기반으로 합니다.
 
 ```bash
 curl https://pyenv.run | bash
@@ -94,30 +81,45 @@ Python linter로 [Ruff](https://marketplace.visualstudio.com/items?itemName=char
 ```bash
 git clone --depth 1 --branch main https://github.com/unerue/lightning-boilerplate.git ${your-project-name}
 cd ${your-project-name}
-poetry install
 git remote remove origin
+poetry install
 ```
 
-Poetry를 기반으로 실행한다. `conda`나 `venv`라면 `python` 명령어로 실행합니다.
+항상 파이썬 버전을 확인하고, torch와 cuda의 버전을 확인하거나 아래와 같이 최신 버전을 쓰기 위해 버전을 설정하시기 바랍니다.
+
+```toml
+[tool.poetry.dependencies]
+python = "3.10.*"
+torch = {version = "2.1.0+cu118", source = "pytorch"}
+torchvision = {version = "0.16.0+cu118", source = "pytorch"}
+torchaudio = {version = "2.1.0+cu118", source = "pytorch"}
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"  # cu121
+priority = "explicit"
+```
+
+`poetry`를 기반으로 실행합니다. poetry의 자세한 사용법은 문서를 참고하세요. `conda`나 `venv`라면 `python` 명령어로 실행합니다.
 
 ```bash
 poetry run pytest
 poetry run python src/train.py trainer=gpu
 ```
 
-명령어줄(command line)에서 설정(config) 매개변수 오버라이드(override)하기
+명령어줄(command line)에서 설정(config) 매개변수 오버라이드(override)는 다음과 같습니다.
 
 ```bash
 python src/train.py trainer.max_epochs=20
 ```
 
-미리 설정하지 않은 매개변수 추가하기
+미리 설정하지 않은 매개변수는 아래와 같이 추가합니다.
 
 ```bash
 python src/train.py +trainer.new_arg="value"
 ```
 
-작업 디렉토리 구조는 다음과 같음:
+작업 디렉토리 구조는 다음과 같습니다:
 
 ```bash
 ├── .github                 # GitHub Actions workflows
@@ -421,3 +423,5 @@ poetry env use python3.10
 poetry run python --version
 poetry install
 ```
+
+## Contribution
