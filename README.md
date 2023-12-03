@@ -23,15 +23,7 @@ Lightning Boilerplate는 [lightning-hydra-template](https://github.com/ashleve/l
 - [ ] pytorch native template with hydra-config
 - [ ] Documentation in English
 
-## Prerequisites
-
-### Docker
-
-도커 환경에서 사용하실 분들은 [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) 설치 후 [NGC]()가 아닌 [Docker Hub](https://hub.docker.com/r/pytorch/pytorch/tags)에서 사용할 `CUDA`와 `torch` 버전의 이미지로 컨테이너를 생성하시면 됩니다.
-
-```bash
-docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
-```
+## ⚙ Prerequisites
 
 ### pyenv (recommended)
 
@@ -58,11 +50,19 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 sh Miniconda3-latest-Linux-x86_64.sh
 ```
 
-### VSCODE
+### Docker (optional)
+
+도커 환경에서 사용하실 분들은 [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) 설치 후 [NGC]()가 아닌 [Docker Hub](https://hub.docker.com/r/pytorch/pytorch/tags)에서 사용할 `CUDA`와 `torch` 버전의 이미지로 컨테이너를 생성하시면 됩니다.
+
+```bash
+docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
+```
+
+### VSCODE (optional)
 
 Python linter로 [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)를 설치합니다.
 
-## Usage of Lightning Boilerplate
+## 🚀 Usage of Lightning Boilerplate
 
 해당 템플릿을 `clone`하고 `pyproject.toml` 내에 명시된 파이썬 버전과 시멘틱 버저닝을 확인한 다음 `poetry install` 명령어를 실행하여 기본 라이브러리를 설치합니다. 그 후 `git remote remove origin`을 실행하여 원격 저장소와 연결을 종료합니다.
 
