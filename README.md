@@ -1,17 +1,33 @@
-# lightning-boilerplate
+# ⚡lightning-boilerplate
 
-## Prerequisites
+[![python](https://img.shields.io/badge/-Python_3.9_%7C_3.10-255074?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![python](https://img.shields.io/badge/-Poetry_1.6+-1e293b?logo=poetry&logoColor=white)]()
+[![python](https://img.shields.io/badge/-CUDA_10.7_%7C_10.8-91c733?logo=cuda&logoColor=white)]()
+[![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
+[![lightning](https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://pytorchlightning.ai/)
+[![hydra](https://img.shields.io/badge/Config-Hydra_1.3+-89b8cf)](https://hydra.cc/)
+[![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/)
+[![contributors](https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg)](https://github.com/unerue/lightning-boilerplate/graphs/contributors)
+<!-- [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/) <br> -->
+<!-- [![tests](https://github.com/unerue/lightning-boilerplate/actions/workflows/test.yml/badge.svg)](https://github.com/unerue/lightning-boilerplate/actions/workflows/test.yml) -->
+<!-- [![code-quality](https://github.com/unerue/lightning-boilerplate/actions/workflows/code-quality-main.yaml/badge.svg)](https://github.com/unerue/lightning-boilerplate/actions/workflows/code-quality-main.yaml) -->
+<!-- [![codecov](https://codecov.io/gh/ashleve/lightning-hydra-template/branch/main/graph/badge.svg)](https://codecov.io/gh/unerue/lightning-boilerplate) <br> -->
+<!-- [![license](https://img.shields.io/badge/License-MIT-green.svg?labelColor=gray)](https://github.com/unerue/lightning-boilerplate#license) -->
+<!-- [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/unerue/lightning-boilerplate/pulls) -->
 
-Lightning Boilerplate는 Python 3.9 이상 지원한다. 추천하는 개발환경은 `pyenv`와 `poetry`이다.영어 버전은 준비 중에 있습니다.
+
+Lightning Boilerplate는 [lightning-hydra-template](https://github.com/ashleve/lightning-hydra-template)에서 영감을 받았습니다. `lightning`과 `hydra`를 사용하여 머신러닝/딥러닝 연구자/엔지니어들이 `sklearn`과 `torch`로 연구와 개발을 효율적으로 수행할 수 있도록 지원합니다. 해당 템플릿은 Python 3.9 이상을 지원하며 추천하는 개발환경은 `conda`가 아닌 `pyenv`와 `poetry`입니다.
 
 - [ ] PyTorch and Lightning with video files
 - [ ] scikit-learn template
-- [ ] Documentation
+- [ ] pytorch native template with hydra-config
+- [ ] Documentation in English
 
+## Prerequisites
 
 ### Docker
 
-도커는 NVIDIA Container Toolkit [설치](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) 후 [도커 허브](https://hub.docker.com/r/pytorch/pytorch/tags)에서 사용할 CUDA와 파이토치 버전 이미지를 다운받는다.
+도커 환경에서 사용하실 분들은 [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) 설치 후 [NGC]()가 아닌 [Docker Hub](https://hub.docker.com/r/pytorch/pytorch/tags)에서 사용할 `CUDA`와 `torch` 버전의 이미지로 컨테이너를 생성하시면 됩니다.
 
 ```bash
 docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
@@ -19,7 +35,7 @@ docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 
 ### pyenv (recommended)
 
-pyenv는 맥/리눅스 버전 [설치](https://github.com/pyenv/pyenv#installation), [윈도우 설치](https://github.com/pyenv-win/pyenv-win#installation) 방법에 따라 파이썬 버전을 관리한다.
+`pyenv`는 본인의 운영체제에 따라 [맥/리눅스 버전](https://github.com/pyenv/pyenv#installation) 또는 [윈도우](https://github.com/pyenv-win/pyenv-win#installation) 설치하는 방법을 참고하여 파이썬 버전을 관리하시기 바랍니다.
 
 ```bash
 curl https://pyenv.run | bash
@@ -27,7 +43,7 @@ curl https://pyenv.run | bash
 
 ### Poetry (recommended)
 
-파이썬 의존성 라이브러리 관리툴인 Poetry를 사용할 수 있다. Linux, macOS, Windows (WSL) [설치](https://python-poetry.org/docs/#installing-with-the-official-installer)를 참고한다.
+해당 템플릿은 파이썬 의존성 라이브러리 관리툴인 `poetry`를 사용합니다. Linux, macOS, Windows (WSL) [설치 방법](https://python-poetry.org/docs/#installing-with-the-official-installer)를 참고하여 의존성을 관리하시기 바랍니다.
 
 ```bash
 curl -sSL https://install.python-poetry.org | python3 -
@@ -44,13 +60,11 @@ sh Miniconda3-latest-Linux-x86_64.sh
 
 ### VSCODE
 
-Python linter로 [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)를 설치한다.
+Python linter로 [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)를 설치합니다.
 
+## Usage of Lightning Boilerplate
 
-
-## Lightning Boilerplate
-
-> 템플릿을 다운 받고 `poetry install` 전 파이썬 버전과 `pyproject.toml` 파일의 파이썬 버전과 시멘틱 버저닝을 확인한 다음 실행한다. 그 후 git remote remove origin을 실행하여 원격 저장소와 연결을 종료한다.
+템플릿을 `clone`하고 `pyproject.toml` 내에 명시된 파이썬 버전과 시멘틱 버저닝을 확인한 다음 `poetry install` 명령어를 실행하여 기본 라이브러리를 설치합니다. 그 후 `git remote remove origin`을 실행하여 원격 저장소와 연결을 종료합니다.
 
 ```bash
 git clone --depth 1 --branch main https://github.com/unerue/lightning-boilerplate.git ${your-project-name}
