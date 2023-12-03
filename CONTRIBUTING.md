@@ -9,6 +9,8 @@ There are several ways you can contribute to⚡lightning-boilerplate:
 
 ## Development environment
 
+This guide was heavily inspired by [sckikit-learn guide to contributing](https://scikit-learn.org/dev/developers/contributing.html).
+
 ```bash
 apt-get install git-flow
 git flow init
