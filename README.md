@@ -6,8 +6,8 @@
 [![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
 [![lightning](https://img.shields.io/badge/-Lightning_2.0+-792ee5?logo=pytorchlightning&logoColor=white)](https://pytorchlightning.ai/)
 [![hydra](https://img.shields.io/badge/Config-Hydra_1.3+-89b8cf)](https://hydra.cc/)
-[![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/)
 [![contributors](https://img.shields.io/github/contributors/unerue/lightning-boilerplate.svg)](https://github.com/unerue/lightning-boilerplate/graphs/contributors)
+<!-- [![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/) -->
 <!-- [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/) <br> -->
 <!-- [![tests](https://github.com/unerue/lightning-boilerplate/actions/workflows/test.yml/badge.svg)](https://github.com/unerue/lightning-boilerplate/actions/workflows/test.yml) -->
 <!-- [![code-quality](https://github.com/unerue/lightning-boilerplate/actions/workflows/code-quality-main.yaml/badge.svg)](https://github.com/unerue/lightning-boilerplate/actions/workflows/code-quality-main.yaml) -->
@@ -64,7 +64,7 @@ Python linter로 [Ruff](https://marketplace.visualstudio.com/items?itemName=char
 
 ## Usage of Lightning Boilerplate
 
-템플릿을 `clone`하고 `pyproject.toml` 내에 명시된 파이썬 버전과 시멘틱 버저닝을 확인한 다음 `poetry install` 명령어를 실행하여 기본 라이브러리를 설치합니다. 그 후 `git remote remove origin`을 실행하여 원격 저장소와 연결을 종료합니다.
+해당 템플릿을 `clone`하고 `pyproject.toml` 내에 명시된 파이썬 버전과 시멘틱 버저닝을 확인한 다음 `poetry install` 명령어를 실행하여 기본 라이브러리를 설치합니다. 그 후 `git remote remove origin`을 실행하여 원격 저장소와 연결을 종료합니다.
 
 ```bash
 git clone --depth 1 --branch main https://github.com/unerue/lightning-boilerplate.git ${your-project-name}
@@ -73,55 +73,10 @@ poetry install
 git remote remove origin
 ```
 
-## Poetry package installation
-
-Poetry 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설치 방법은 다음과 같다. pyenv로 파이썬 전역 버전을 설정한다. 아래는 `poetry`로 해당 템플릿이 아닌 다른 프로젝트에서 사용할 수 있는 간단한 사용방법을 설명한다.
-
-<details>
-<summary><b>Basic poetry usage</b></summary>
-
-poetry 기초 사용 방법은 다음과 같다.
+Poetry를 기반으로 실행한다. `conda`나 `venv`라면 `python` 명령어로 실행합니다.
 
 ```bash
-pyenv install 3.10.13 # Windows 3.10.10
-pyenv global 3.10.13
-```
-
-`git clone`으로 만들어진 폴더로 진입해 프로젝트를 초기화한다.
-* 작업 폴더 내에서 `poetry`를 초기화한다. 초기화 시 PEP에 따라 `pyproject.toml`이 생성된다.
-* 작업 폴더 내 패키지관리(e.g. JS의 node_modules)와 같이 라이브러리를 관리하고 싶다면 virtualenvs.in-project를 `true`로 설정하고 해당 파일을 `--local`로 저장한다. 저장된 로컬 설정파일은 `poetry.toml`이다.
-
-```bash
-poetry init
-poetry config virtualenvs.in-project true --local
-poetry run python --version
-```
-
-초기화로 생성된 pyproject.toml 파일에 `[tool.poetry.dependencies]`의 파이썬 버전을 `python = "3.10.*"`으로 변경한다. 파이토치를 설치하기 전 소스 경로를 추가한다. 원하는 버전은 [이전 버전](https://pytorch.org/get-started/previous-versions/)에서 확인한 다음 설치한다.
-
-```bash
-poetry source add -p explicit pytorch https://download.pytorch.org/whl/cu117
-poetry add --source pytorch torch torchvision
-poetry run python -c "import torch;print(torch.cuda.is_available())"
-```
-
-### Lightning and dev package installation
-
-* `poetry`는 라이브러리를 다양한 그룹으로 관리할 수 있다. 서비스와 상관없이 개발에만 필요한 패키지라면 `--group`인자를 통해 그룹명을 지정한 다음 배포 시 해당 라이브러리를 배제하고 배포가능하다.
-
-```bash
-poetry add lightning hydra-core hydra-colorlog rootutils rich python-dotenv
-poetry add pytest black mypy isort pre-commit --group dev
-```
-
-</details>
-
-## Usage of Lightning Boilerplate
-
-Poetry를 기반으로 실행한다. `conda`나 `venv`라면 `python` 명령어로 실행한다.
-
-```bash
-pytest run pytest
+poetry run pytest
 poetry run python src/train.py trainer=gpu
 ```
 
@@ -186,6 +141,49 @@ poetry run pre-commit install
 ```
 
 `pre-commit install` 명령어를 통해 `pre-commit-config.yaml` 파일에 미리 설정된 훅들을 설치하고 차후 `git commit`에 따른 코드를 자동으로 수정해준다.
+
+## Poetry package installation
+
+`poetry` 사용해 프로젝트 초기화 및 파이토치 등 라이브러리 설치 방법은 다음과 같습니다. `pyenv`로 파이썬 전역 버전을 설정합니다. 아래는 `poetry`로 해당 템플릿이 아닌 다른 프로젝트에서도 사용할 수 있는 간단한 사용방법을 설명합니다.
+
+<details>
+<summary><b>Basic poetry usage</b></summary>
+
+poetry 기초 사용 방법은 다음과 같다.
+
+```bash
+pyenv install 3.10.13 # Windows 3.10.10
+pyenv global 3.10.13
+```
+
+`git clone`으로 만들어진 폴더로 진입해 프로젝트를 초기화한다.
+* 작업 폴더 내에서 `poetry`를 초기화한다. 초기화 시 PEP에 따라 `pyproject.toml`이 생성된다.
+* 작업 폴더 내 패키지관리(e.g. JS의 node_modules)와 같이 라이브러리를 관리하고 싶다면 virtualenvs.in-project를 `true`로 설정하고 해당 파일을 `--local`로 저장한다. 저장된 로컬 설정파일은 `poetry.toml`이다.
+
+```bash
+poetry init
+poetry config virtualenvs.in-project true --local
+poetry run python --version
+```
+
+초기화로 생성된 pyproject.toml 파일에 `[tool.poetry.dependencies]`의 파이썬 버전을 `python = "3.10.*"`으로 변경한다. 파이토치를 설치하기 전 소스 경로를 추가한다. 원하는 버전은 [이전 버전](https://pytorch.org/get-started/previous-versions/)에서 확인한 다음 설치한다.
+
+```bash
+poetry source add -p explicit pytorch https://download.pytorch.org/whl/cu117
+poetry add --source pytorch torch torchvision
+poetry run python -c "import torch;print(torch.cuda.is_available())"
+```
+
+### Lightning and dev package installation
+
+* `poetry`는 라이브러리를 다양한 그룹으로 관리할 수 있다. 서비스와 상관없이 개발에만 필요한 패키지라면 `--group`인자를 통해 그룹명을 지정한 다음 배포 시 해당 라이브러리를 배제하고 배포가능하다.
+
+```bash
+poetry add lightning hydra-core hydra-colorlog rootutils rich python-dotenv
+poetry add pytest black mypy isort pre-commit --group dev
+```
+
+</details>
 
 
 ## (Misc) Package Version Management with Poetry
