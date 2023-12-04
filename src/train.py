@@ -30,21 +30,21 @@ def train(cfg: DictConfig) -> tuple[dict[str, Any], dict[str, Any]]:
 
     callbacks: list[Callback] = utils.instantiate_callbacks(cfg.get("callbacks"))
 
-    logger: list[Logger] = utils.instantiate_loggers(cfg.get("logger"))
+    loggers: list[Logger] = utils.instantiate_loggers(cfg.get("loggers"))
 
     log.info(f"Instantiating trainer <{cfg.trainer._target_}>")
-    trainer: Trainer = hydra.utils.instantiate(cfg.trainer, callbacks=callbacks, logger=logger)
+    trainer: Trainer = hydra.utils.instantiate(cfg.trainer, callbacks=callbacks, logger=loggers)
 
     object_dict = {
         "cfg": cfg,
         "datamodule": datamodule,
         "model": model,
         "callbacks": callbacks,
-        "logger": logger,
+        "loggers": loggers,
         "trainer": trainer,
     }
 
-    if logger:
+    if loggers:
         utils.log_hyperparameters(object_dict)
 
     if cfg.get("train"):
