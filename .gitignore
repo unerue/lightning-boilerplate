@@ -8,6 +8,7 @@ __pycache__/
 
 # env example
 .env.example
+MISC.md
 
 # Distribution / packaging
 .Python
